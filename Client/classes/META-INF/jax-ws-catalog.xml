@@ -1,0 +1,4 @@
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+  <system systemId="https://fmw01-wls-1:7104/TelecomBuyFlow/ServiceBuyFlowProxy?wsdl#%7Bhttp%3A%2F%2Fxmlns.oracle.com%2FTelecomServicesPlatform%2FTelecomBuyFlow%2FServiceBuyFlow%7Dexecute_bindQSService"
+          uri="../com/oracle/xmlns/telecomservicesplatform/telecombuyflow/servicebuyflow/execute_bindQSService.wsdl"/>
+</catalog>

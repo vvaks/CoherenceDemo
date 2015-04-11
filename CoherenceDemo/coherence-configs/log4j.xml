@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<appender name="generalFile" class="org.apache.log4j.rolling.RollingFileAppender">
+		<rollingPolicy class="org.apache.log4j.rolling.TimeBasedRollingPolicy">
+			<param name="FileNamePattern" value="log/cache-server-customer-general.%d{yyyy-MM-dd}.log" />
+			<param name="ActiveFileName" value="log/cache-server-customer-general.log" />
+		</rollingPolicy>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss,SSS} %-5p %c{2}(%L) - %m%n" />
+		</layout>
+	</appender>
+	<appender name="traceFile" class="org.apache.log4j.rolling.RollingFileAppender">
+		<rollingPolicy class="org.apache.log4j.rolling.TimeBasedRollingPolicy">
+			<param name="FileNamePattern" value="log/cache-server-customer-trace.%d{yyyy-MM-dd}.log" />
+			<param name="ActiveFileName" value="log/cache-server-customer-trace.log" />
+		</rollingPolicy>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss,SSS} %-5p %c{2}(%L) - %m%n" />
+		</layout>
+	</appender>
+	<appender name="mappingFile" class="org.apache.log4j.rolling.RollingFileAppender">
+		<rollingPolicy class="org.apache.log4j.rolling.TimeBasedRollingPolicy">
+			<param name="FileNamePattern" value="log/cache-server-customer-mapping.%d{yyyy-MM-dd}.log" />
+			<param name="ActiveFileName" value="log/cache-server-customer-mapping.log" />
+		</rollingPolicy>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss,SSS} %-5p %c{2}(%L) - %m%n" />
+		</layout>
+	</appender>
+	<appender name="cacheFile" class="org.apache.log4j.rolling.RollingFileAppender">
+		<rollingPolicy class="org.apache.log4j.rolling.TimeBasedRollingPolicy">
+			<param name="FileNamePattern" value="log/cache-server-customer-cache.%d{yyyy-MM-dd}.log" />
+			<param name="ActiveFileName" value="log/cache-server-customer-cache.log" />
+		</rollingPolicy>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss,SSS} %-5p %c{2}(%L) - %m%n" />
+		</layout>
+	</appender>
+	<appender name="errorFile" class="org.apache.log4j.rolling.RollingFileAppender" >
+		<param name="Threshold" value="info"/> 
+		<rollingPolicy class="org.apache.log4j.rolling.TimeBasedRollingPolicy">
+			<param name="FileNamePattern" value="log/cache-server-customer-error.%d{yyyy-MM-dd}.log" />
+			<param name="ActiveFileName" value="log/cache-server-customer-error.log" />
+		</rollingPolicy>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss,SSS} %-5p %c{2}(%L) - %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelMatchFilter">
+			<param name="LevelToMatch" value="ERROR" />
+			<param name="AcceptOnMatch" value="true" />
+		</filter>
+		<filter class="org.apache.log4j.varia.DenyAllFilter" />
+	</appender>
+	<appender name="daemonFile" class="org.apache.log4j.FileAppender">
+		<param name="File" value="log/cache-server-customer-daemon.log"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss,SSS} %-5p %c{2}(%L) - %m%n" />
+		</layout>
+	</appender>	
+	
+  	<appender name="console" class="org.apache.log4j.ConsoleAppender">
+        <param name="Target" value="System.out" />
+        <param name="Threshold" value="FATAL"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{HH:mm:ss,SSS} %-5p %c{2}(%L) - %m%n" />
+        </layout>
+    </appender>
+
+	<logger name="generalLogger">
+		<level value="DEBUG" />
+		<appender-ref ref="generalFile" />
+	</logger>
+
+	<logger name="traceLogger">
+		<level value="DEBUG" />
+		<appender-ref ref="traceFile" />
+	</logger>
+
+	<logger name="mappingLogger">
+		<level value="DEBUG" />
+		<appender-ref ref="mappingFile" />
+	</logger>
+
+	<logger name="cacheLogger">
+		<level value="DEBUG" />
+		<appender-ref ref="cacheFile" />
+	</logger>
+
+    <logger name="com.comcast.cache">
+		<level value="ERROR" />
+		<appender-ref ref="generalFile" />
+	</logger>
+	
+	<logger name="com.comcast.cache.server">
+		<level value="INFO" />
+		<appender-ref ref="cacheFile" />
+	</logger>
+	
+	<logger name="com.comcast.cache.dao.accountservice.assemble">
+		<level value="INFO" />
+		<appender-ref ref="mappingFile" />
+	</logger>
+	
+	<logger name="daemonLogger">
+		<appender-ref ref="daemonFile" />
+	</logger>
+	
+	<logger name="org.dozer">
+		<level value="WARN" />
+		<appender-ref ref="mappingFile" />
+	</logger>
+
+	<logger name="org.dozer.MappingProcessor">
+		<level value="INFO" />
+		<appender-ref ref="mappingFile" />
+	</logger>	
+
+    <root>
+        <priority value="DEBUG" />
+        <appender-ref ref="console" />
+		<appender-ref ref="errorFile" />
+    </root>
+    
+</log4j:configuration>

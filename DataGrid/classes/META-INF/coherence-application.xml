@@ -1,0 +1,9 @@
+<?xml version = '1.0' encoding = 'windows-1252'?>
+<coherence-application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                       xsi:schemaLocation="http://xmlns.oracle.com/coherence/coherence-application http://xmlns.oracle.com/coherence/coherence-application/1.0/coherence-application.xsd"
+                       xmlns="http://xmlns.oracle.com/coherence/coherence-application">
+                       
+                       
+    <cache-configuration-ref override-property="cache-config/TelecomDataGridProxy">META-INF/coherence-cache-config.xml</cache-configuration-ref>
+    <pof-configuration-ref>META-INF/datagrid-pof-config.xml</pof-configuration-ref>
+</coherence-application>

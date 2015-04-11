@@ -1,0 +1,41 @@
+<?xml version='1.0'?>
+<!DOCTYPE coherence SYSTEM "coherence.dtd">
+
+<coherence>
+
+   <cluster-config>
+      <member-identity>
+         <cluster-name>GlobalCacheClusterEast</cluster-name>
+      </member-identity>
+	<unicast-listener>
+		<well-known-addresses>  
+			<socket-address id="1">    
+				<address>localhost</address>    
+				<port>8870</port>  
+			</socket-address>
+		</well-known-addresses>
+	</unicast-listener>  
+
+      <multicast-listener>
+         <address>224.3.9.0</address>
+         <port>37000</port>
+         <time-to-live>4</time-to-live>
+      </multicast-listener>
+
+   </cluster-config>
+   
+   
+<configurable-cache-factory-config>
+		<class-name system-property="tangosol.coherence.cachefactory">
+			com.oracle.coherence.environment.extensible.ExtensibleEnvironment
+		</class-name>
+		<init-params>
+			<init-param>
+				<param-type>java.lang.String</param-type>
+				<param-value system-property="tangosol.coherence.cacheconfig">
+					server-config-proxy.xml
+				</param-value>
+			</init-param>			
+		</init-params>
+	</configurable-cache-factory-config>
+</coherence>

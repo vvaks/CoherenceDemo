@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+				http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+				http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd 
+				http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+				http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd
+				http://www.springframework.org/schema/data/mongo http://www.springframework.org/schema/data/mongo/spring-mongo-1.0.xsd"
+	default-lazy-init="false" default-dependency-check="none">
+
+	<context:component-scan base-package="com.comcast.cache" />
+
+	<import resource="classpath:spring-config-common.xml" />
+
+	<bean id="propertyPlaceholderConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="ignoreResourceNotFound" value="true" />
+		<property name="systemPropertiesMode" value="2" />
+		<property name="locations">
+			<list merge="true">
+				<value>classpath:/cacheServerDefault.properties</value>
+				<value>classpath:/cacheServer.properties</value>
+				<value>classpath:/buildinfo.properties</value>
+			</list>
+		</property>
+	</bean>	
+
+	<bean id="mapper" class="org.dozer.DozerBeanMapper" scope="prototype">
+		<property name="mappingFiles">
+			<list>
+				<value>mainMapping.xml</value>
+				<value>accountServiceMapping.xml</value>
+				<value>eventsMapping.xml</value>
+				<value>nonBillingMapping.xml</value>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- couchbase -->
+	<util:list id="couchbaseNode">
+		<bean class="java.net.URI">
+			<constructor-arg>
+				<value>${nosql.couchbase.uri}</value>
+			</constructor-arg>
+		</bean>		
+	</util:list>
+
+	<bean id="couchbaseConnectionFactoryBuilder" class="com.couchbase.client.CouchbaseConnectionFactoryBuilder">
+		<property name="opTimeout" value="120000" />
+		<property name="viewTimeout" value="120000" />
+	<!-- 
+		<property name="failureMode" value="${memcached.failureMode}" />
+		<property name="hashAlg">
+			<value type="net.spy.memcached.DefaultHashAlgorithm">${memcached.hashAlg}</value>
+		</property>
+		<property name="timeoutExceptionThreshold" value="${memcached.timeoutExceptionThreshold}" />
+		<property name="readBufferSize" value="${memcached.readBufferSize}" />
+		<property name="opQueueMaxBlockTime" value="${memcached.opQueueMaxBlockTime}" />
+		<property name="shouldOptimize" value="${memcached.shouldOptimize}" />
+		<property name="maxReconnectDelay" value="${memcached.maxReconnectDelay}" />
+		<property name="obsPollInterval" value="${memcached.obsPollInterval}" />
+		<property name="obsPollMax" value="${memcached.obsPollMax}" />
+	 -->
+	</bean>
+
+	<bean id="couchbaseConnectionFactory" factory-bean="couchbaseConnectionFactoryBuilder"
+		factory-method="buildCouchbaseConnection">
+		<constructor-arg>
+			<ref bean="couchbaseNode" />
+		</constructor-arg>
+		<constructor-arg>
+			<value>${nosql.couchbase.bucket}</value>
+		</constructor-arg>
+		<constructor-arg>
+			<null/>
+		</constructor-arg>
+	</bean>
+
+	<bean id="couchbaseClient" class="com.couchbase.client.CouchbaseClient">
+		<constructor-arg>
+			<ref bean="couchbaseConnectionFactory" />
+		</constructor-arg>
+	</bean>
+	<!-- end couchbase -->
+
+</beans>

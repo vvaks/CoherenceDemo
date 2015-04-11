@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<pof-config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xmlns="http://xmlns.oracle.com/coherence/coherence-pof-config"
+              xsi:schemaLocation="http://xmlns.oracle.com/coherence/coherence-pof-config coherence-pof-config.xsd">
+  <user-type-list>
+    <!-- coherence POF user types -->
+
+    <include>coherence-pof-config.xml</include>
+    
+    <user-type>
+        <type-id>8001</type-id> 
+        <class-name>com.oracle.datagrid.activeactive.entity.Sequence</class-name>
+    </user-type>
+    <user-type>
+        <type-id>8010</type-id> 
+        <class-name>com.oracle.datagrid.activeactive.util.SequenceProcessor</class-name>
+    </user-type>
+    <user-type>
+       <type-id>9001</type-id>
+       <class-name>com.oracle.datagrid.NoSQL.entity.Customer</class-name>
+       <serializer>
+          <class-name>com.oracle.datagrid.NoSQL.entity.CustomerSerializer</class-name>
+       </serializer>
+    </user-type>
+    <user-type>
+       <type-id>9002</type-id>
+       <class-name>com.oracle.datagrid.NoSQL.entity.Name</class-name>
+       <serializer>
+          <class-name>com.oracle.datagrid.NoSQL.entity.NameSerializer</class-name>
+       </serializer>
+    </user-type>
+    <user-type>
+       <type-id>9003</type-id>
+       <class-name>com.oracle.datagrid.NoSQL.entity.Location</class-name>
+       <serializer>
+          <class-name>com.oracle.datagrid.NoSQL.entity.LocationSerializer</class-name>
+       </serializer>
+    </user-type>
+    <user-type>
+       <type-id>9004</type-id>
+       <class-name>com.oracle.datagrid.NoSQL.entity.Device</class-name>
+       <serializer>
+          <class-name>com.oracle.datagrid.NoSQL.entity.DeviceSerializer</class-name>
+       </serializer>
+    </user-type>
+    <user-type>
+       <type-id>9005</type-id>
+       <class-name>com.oracle.datagrid.NoSQL.entity.Service</class-name>
+       <serializer>
+          <class-name>com.oracle.datagrid.NoSQL.entity.ServiceSerializer</class-name>
+       </serializer>
+    </user-type>
+    <user-type>
+       <type-id>9006</type-id>
+       <class-name>oracle.kv.Key</class-name>
+       <serializer>
+          <class-name>oracle.kv.coherence.PofKeySerializer</class-name>
+       </serializer>
+    </user-type>
+    <user-type>
+            <type-id>9100</type-id> 
+            <class-name>com.oracle.datagrid.NoSQL.util.RemoteDistributedCacheLoader</class-name>
+        </user-type>
+  </user-type-list>
+
+  <allow-interfaces>true</allow-interfaces> 
+  <allow-subclasses>true</allow-subclasses> 
+  <enable-references>true</enable-references>  
+</pof-config>

@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+
+<cache-config>
+<!--
+	<defaults>
+	<serializer>pof</serializer>
+  	</defaults> -->
+   <caching-scheme-mapping>
+      <cache-mapping>
+         <cache-name>*</cache-name>
+         <scheme-name>extend-dist</scheme-name>
+      </cache-mapping>
+   </caching-scheme-mapping>
+
+   <caching-schemes>
+      <remote-cache-scheme>
+        <scheme-name>extend-dist</scheme-name>
+        <service-name>ExtendTcpCacheService</service-name>
+        <serializer>
+            <class-name>com.tangosol.io.pof.ConfigurablePofContext</class-name>
+            <init-params>
+                <init-param>  
+                    <param-type>String</param-type>  
+                    <param-value>datagrid-nosql-pof-config.xml</param-value>  
+                </init-param>
+            </init-params>
+        </serializer>
+        <initiator-config>
+            <tcp-initiator>
+               <remote-addresses>
+                  <socket-address>
+                     <address>192.168.56.1</address>
+                     <port>9998</port>
+                  </socket-address>
+               </remote-addresses>
+               <connect-timeout>10s</connect-timeout>
+            </tcp-initiator>
+            <outgoing-message-handler>
+               <request-timeout>30s</request-timeout>
+            </outgoing-message-handler>
+         </initiator-config>
+      </remote-cache-scheme>
+       <remote-invocation-scheme>       
+		<scheme-name>extend-invocation</scheme-name>
+		<service-name>InvocationService</service-name>
+                <!--
+                <serializer>
+                    <class-name>com.tangosol.io.pof.ConfigurablePofContext</class-name>
+                    <init-params>
+                        <init-param>  
+                            <param-type>String</param-type>  
+                            <param-value>pof-config.xml</param-value>  
+                        </init-param>
+                    </init-params>
+                </serializer> -->
+                <initiator-config>
+                    <tcp-initiator>
+                        <remote-addresses>
+                            <socket-address>
+                                <address>192.168.56.1</address>
+                                <port>9998</port>
+                            </socket-address>
+                        </remote-addresses>
+                        <connect-timeout>10s</connect-timeout>
+                    </tcp-initiator>
+                    <outgoing-message-handler>
+                        <request-timeout>30s</request-timeout>
+                    </outgoing-message-handler>
+                </initiator-config>
+            </remote-invocation-scheme>
+    </caching-schemes>
+</cache-config>
