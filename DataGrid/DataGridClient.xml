@@ -16,15 +16,6 @@
       <remote-cache-scheme>
         <scheme-name>extend-dist</scheme-name>
         <service-name>ExtendTcpCacheService</service-name>
-        <serializer>
-            <class-name>com.tangosol.io.pof.ConfigurablePofContext</class-name>
-            <init-params>
-                <init-param>  
-                    <param-type>String</param-type>  
-                    <param-value>datagrid-nosql-pof-config.xml</param-value>  
-                </init-param>
-            </init-params>
-        </serializer>
         <initiator-config>
             <tcp-initiator>
                <remote-addresses>
