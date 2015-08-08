@@ -7,13 +7,27 @@ import com.tangosol.io.pof.PortableObject;
 
 import java.io.IOException;
 
-public class Location implements PortableObject {
+import java.io.Serializable;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+
+import org.eclipse.persistence.oxm.annotations.XmlInverseReference;
+
+@XmlRootElement(name="Location")
+@XmlAccessorType(XmlAccessType.PROPERTY)
+public class Location implements PortableObject, Serializable {
+    @SuppressWarnings("compatibility:3221595405530288228")
+    private static final long serialVersionUID = 1L;
     private Integer locationId;
     private String address;
     private String city;
     private String state;
     private String postalCode;
     private String country;
+    //@XmlInverseReference(mappedBy="customerLocation")
     private Customer customer;
     
     public Location() {}
@@ -41,6 +55,7 @@ public class Location implements PortableObject {
     public String getCountry() {
         return country;
     }
+    @XmlTransient
     public Customer getCustomer() {
         return customer;
     }

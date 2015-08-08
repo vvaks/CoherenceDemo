@@ -7,7 +7,18 @@ import com.tangosol.io.pof.PortableObject;
 
 import java.io.IOException;
 
-public class Device implements PortableObject {
+import java.io.Serializable;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+
+@XmlRootElement(name="Device")
+@XmlAccessorType(XmlAccessType.PROPERTY)
+public class Device implements PortableObject, Serializable {
+    @SuppressWarnings("compatibility:2927587847550557322")
+    private static final long serialVersionUID = 1L;
     private Integer deviceId;
     private String deviceType;
     private String deviceSerialNumber;
@@ -52,6 +63,8 @@ public class Device implements PortableObject {
     public String getMacAddress() {
         return macAddress;
     }
+    
+    @XmlTransient
     public Customer getCustomer() {
         return customer;
     }

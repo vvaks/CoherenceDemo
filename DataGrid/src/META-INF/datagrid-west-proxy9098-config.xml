@@ -210,5 +210,19 @@
          </acceptor-config>
          <autostart>true</autostart>
       </proxy-scheme>
+      
+    <!--  <proxy-scheme>
+         <service-name>ExtendHttpProxyService</service-name>
+         <thread-count>5</thread-count>
+         <acceptor-config>
+            <http-acceptor>
+               <local-address>
+                  <address>fmw02-wls-1</address>
+                  <port>8098</port>
+               </local-address>
+            </http-acceptor>
+         </acceptor-config>
+         <autostart>true</autostart>
+      </proxy-scheme> -->
    </caching-schemes>
 </cache-config>

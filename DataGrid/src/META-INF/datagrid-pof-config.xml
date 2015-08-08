@@ -3,6 +3,7 @@
     <user-type-list>
         <!--  include all "standard" Coherence POF user types  --> 
         <include>coherence-pof-config.xml</include> 
+        <include>coherence-rest-pof-config.xml</include>
         <user-type>
             <type-id>1001</type-id> 
             <class-name>com.oracle.datagrid.activeactive.entity.Customer</class-name> 

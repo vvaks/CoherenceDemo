@@ -6,9 +6,19 @@ import com.tangosol.io.pof.PortableObject;
 
 import java.io.IOException;
 
+import java.io.Serializable;
+
 import java.util.List;
 
-public class Customer implements PortableObject{
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name="Customer")
+@XmlAccessorType(XmlAccessType.PROPERTY)
+public class Customer implements PortableObject, Serializable{
+    @SuppressWarnings("compatibility:504362791440934497")
+    private static final long serialVersionUID = 1L;
     private Integer customerId;
     private Name customerName;
     private String customerPhone;

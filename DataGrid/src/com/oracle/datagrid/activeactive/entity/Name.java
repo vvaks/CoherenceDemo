@@ -7,7 +7,17 @@ import com.tangosol.io.pof.PortableObject;
 
 import java.io.IOException;
 
-public class Name implements PortableObject {
+import java.io.Serializable;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name="Name")
+@XmlAccessorType(XmlAccessType.PROPERTY)
+public class Name implements PortableObject, Serializable {
+    @SuppressWarnings("compatibility:-4869011919418444192")
+    private static final long serialVersionUID = 1L;
     private String firstName;
     private String lastName;
     

@@ -7,10 +7,20 @@ import com.tangosol.io.pof.PortableObject;
 
 import java.io.IOException;
 
+import java.io.Serializable;
+
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
-public class Service implements PortableObject {
+@XmlRootElement(name="Service")
+@XmlAccessorType(XmlAccessType.PROPERTY)
+public class Service implements PortableObject, Serializable {
+    @SuppressWarnings("compatibility:-3705806427438276061")
+    private static final long serialVersionUID = 1L;
     private Integer serviceId;
     private String serviceName;
     private String serviceDescription;
@@ -46,6 +56,7 @@ public class Service implements PortableObject {
         return serviceCode;
     }
     
+    @XmlTransient
     public List<Customer> getCustomers(){
         return customers;
     }

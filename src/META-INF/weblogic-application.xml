@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'windows-1252'?>
+<weblogic-application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                      xsi:schemaLocation="http://xmlns.oracle.com/weblogic/weblogic-application http://xmlns.oracle.com/weblogic/weblogic-application/1.5/weblogic-application.xsd"
+                      xmlns="http://xmlns.oracle.com/weblogic/weblogic-application">
+  <module>
+    <name>DataGridArchive</name>
+    <type>GAR</type>
+    <path>DataGridArchive.gar</path>
+  </module>
+  <library-ref>
+    <library-name>coherence-rest</library-name>
+  </library-ref>                      
+</weblogic-application>

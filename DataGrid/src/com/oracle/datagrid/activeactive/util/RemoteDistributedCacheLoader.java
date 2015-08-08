@@ -77,10 +77,10 @@ public class RemoteDistributedCacheLoader implements Invocable, PortableObject{
 	private Sequence sequence;
 	private Connection conn;
 	//private String dbUrl = "jdbc:oracle:thin:@192.168.56.102:1521:fmw12c";
-        private String dbUrl = "jdbc:oracle:thin:@fmwdb02:1521/fmw12c.usoracle88058.oraclecloud.internal";
-        private String dbUser = "TELECOM";
-	private String dbPass = "welcome1";
-	private String dbClass = "oracle.jdbc.OracleDriver";
+        //private String dbUrl = "jdbc:oracle:thin:@fmwdb02:1521/fmw12c.usoracle88058.oraclecloud.internal";
+        //private String dbUser = "";
+	//private String dbPass = "";
+	//private String dbClass = "oracle.jdbc.OracleDriver";
 	private String clusterLocation;
 	private Boolean isCascaded;
 	

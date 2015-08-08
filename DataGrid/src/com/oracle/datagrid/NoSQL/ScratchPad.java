@@ -53,7 +53,7 @@ public class ScratchPad {
         //String manualOveride = "54321";
         Boolean demoWriteThrough = true;
         Boolean demoRecovery = true;
-        Boolean reloadGrid = false;
+        Boolean reloadGrid = true;
         
         NamedCache SequenceCache = CacheFactory.getCache("Sequence");
         NamedCache myCache = CacheFactory.getCache("AvroCustomerCache");
