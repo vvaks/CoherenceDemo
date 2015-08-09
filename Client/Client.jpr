@@ -71,6 +71,7 @@
       <list n="technologyScope">
          <string v="Database"/>
          <string v="Java"/>
+         <string v="Maven"/>
          <string v="TopLink"/>
          <string v="WSDL"/>
          <string v="WSPolicy"/>
@@ -121,6 +122,9 @@
       <list n="profileList">
          <string v="execute_bindQSService-Client"/>
       </list>
+   </hash>
+   <hash n="oracle.jdeveloper.maven.compiler.MavenConfiguration">
+      <url n="pomfileURL" path="pom.xml"/>
    </hash>
    <hash n="oracle.jdeveloper.model.J2eeSettings">
       <value n="j2eeWebAppName" v="CoherenceDemo-Client-webapp"/>

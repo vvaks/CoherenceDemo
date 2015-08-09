@@ -82,18 +82,37 @@
          <hash>
             <hash n="dependable">
                <url n="sourceOwnerURL" path="../CoherenceDemo.jws"/>
-               <url n="sourceURL" path="../DataGrid/DataGrid.jpr"/>
-            </hash>
-            <value n="recognizerId" v="oracle.jdeveloper.library"/>
-         </hash>
-         <hash>
-            <hash n="dependable">
-               <url n="sourceOwnerURL" path="../CoherenceDemo.jws"/>
                <url n="sourceURL" path="../Client/Client.jpr"/>
             </hash>
             <value n="recognizerId" v="oracle.jdeveloper.library"/>
          </hash>
       </list>
+   </hash>
+   <hash n="oracle.ide.model.ResourcePaths">
+      <hash n="resourcesContentSet">
+         <list n="constituent-sets">
+            <hash>
+               <list n="pattern-filters">
+                  <string v="+*"/>
+               </list>
+               <list n="url-path">
+                  <url path="."/>
+               </list>
+            </hash>
+            <hash>
+               <list n="pattern-filters">
+                  <string v="+**"/>
+               </list>
+               <list n="url-path">
+                  <url path="src/main/scripts/"/>
+               </list>
+            </hash>
+         </list>
+         <list n="pattern-filters">
+            <string v="+*"/>
+         </list>
+         <list n="url-path"/>
+      </hash>
    </hash>
    <hash n="oracle.ide.model.TechnologyScopeConfiguration">
       <list n="technologyScope">
@@ -334,43 +353,15 @@
    <hash n="oracle.jdevimpl.config.JProjectLibraries">
       <list n="exportedReferences">
          <hash>
+            <value n="id" v="CoherenceDemo:DataGrid:1.0-SNAPSHOT:jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
             <value n="id" v="JSP Runtime"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
             <value n="id" v="Servlet Runtime"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="BC4J Runtime"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="ADF Model Runtime"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="MDS Runtime"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="MDS Runtime Dependencies"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="BC4J Security"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="Oracle JDBC"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="BC4J Oracle Domains"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="BC4J Tester"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
@@ -382,11 +373,11 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="Coherence Runtime"/>
+            <value n="id" v="Oracle JDBC"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="DataGrid"/>
+            <value n="id" v="Coherence Runtime"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
@@ -405,53 +396,47 @@
       <hash n="internalDefinitions">
          <list n="libraryDefinitions">
             <hash>
+               <list n="classPath">
+                  <url path="../DataGrid/target/DataGrid-1.0-SNAPSHOT.jar" jar-entry=""/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
                <value n="description" v="DataGrid"/>
                <value n="id" v="DataGrid"/>
                <list n="sourcePath">
                   <url path="../DataGrid/src/"/>
                </list>
             </hash>
+            <hash>
+               <list n="classPath">
+                  <url protocol="file" path="/${maven:maven.local.repo}CoherenceDemo/DataGrid/1.0-SNAPSHOT/DataGrid-1.0-SNAPSHOT.gar"/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="CoherenceDemo:DataGrid:1.0-SNAPSHOT:gar"/>
+               <value n="id" v="CoherenceDemo:DataGrid:1.0-SNAPSHOT:gar"/>
+               <value n="locked" v="true"/>
+            </hash>
+            <hash>
+               <list n="classPath">
+                  <url protocol="file" path="/${maven:maven.local.repo}CoherenceDemo/DataGrid/1.0-SNAPSHOT/DataGrid-1.0-SNAPSHOT.jar"/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="CoherenceDemo:DataGrid:1.0-SNAPSHOT:jar"/>
+               <value n="id" v="CoherenceDemo:DataGrid:1.0-SNAPSHOT:jar"/>
+               <value n="locked" v="true"/>
+            </hash>
          </list>
       </hash>
       <list n="libraryReferences">
+         <hash>
+            <value n="id" v="CoherenceDemo:DataGrid:1.0-SNAPSHOT:jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
          <hash>
             <value n="id" v="JSP Runtime"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
             <value n="id" v="Servlet Runtime"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="BC4J Runtime"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="ADF Model Runtime"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="MDS Runtime"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="MDS Runtime Dependencies"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="BC4J Security"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="Oracle JDBC"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="BC4J Oracle Domains"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="BC4J Tester"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
@@ -463,11 +448,11 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="Coherence Runtime"/>
+            <value n="id" v="Oracle JDBC"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="DataGrid"/>
+            <value n="id" v="Coherence Runtime"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
