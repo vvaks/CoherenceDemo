@@ -57,7 +57,7 @@
     </resources>
     <outputDirectory>classes/</outputDirectory>
     
-    <plugins>
+   <!-- <plugins>
       <plugin>
         <groupId>com.oracle.coherence</groupId>
         <artifactId>maven-gar-plugin</artifactId>
@@ -66,7 +66,7 @@
             <generatePof>true</generatePof>
         </configuration>
       </plugin>
-    </plugins>
+    </plugins> -->
   </build>
   <repositories>
   <repository>
