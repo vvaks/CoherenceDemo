@@ -7,7 +7,7 @@
   <artifactId>DataGrid</artifactId>
   <version>1.0-SNAPSHOT</version>
   <description>Project for DataGrid</description>
-  <packaging>gar</packaging>
+  <packaging>jar</packaging>
   <dependencies>
     <dependency>
       <groupId>com.oracle.adf.library</groupId>
