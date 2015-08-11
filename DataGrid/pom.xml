@@ -83,17 +83,38 @@
     <snapshots>
       <enabled>false</enabled>
     </snapshots>
-    <url>https://maven.oracle.com</url>
+    <url>https://developer.us2.oraclecloud.com/profile/developer87660-usoracleco44777/s/developer87660-usoracleco44777_coherencedemo/maven/</url>
     <layout>default</layout>
   </repository>
 </repositories>
 <pluginRepositories>
   <pluginRepository>
-    <id>maven.oracle.com</id>
+    <id>DCS_Maven_Repository</id>
     <url>https://maven.oracle.com</url>
   </pluginRepository>
 </pluginRepositories>
 <profiles>
+<profile>
+    <id>DCS_Maven_Repository</id>
+    <repositories>
+        <repository>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+                <checksumPolicy>warn</checksumPolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+                <checksumPolicy>fail</checksumPolicy>
+            </snapshots>
+            <id>DCS_Maven_Repository</id>
+            <name>DCS_Repository</name>
+            <url>https://developer.us2.oraclecloud.com/profile/developer87660-usoracleco44777/s/developer87660-usoracleco44777_coherencedemo/maven/</url>
+            <layout>default</layout>
+        </repository>
+    </repositories>
+</profile>
 <profile>
 <id>Oracle</id>
       <activation>
