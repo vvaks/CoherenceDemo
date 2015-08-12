@@ -35,6 +35,12 @@
 	<artifactId>avro</artifactId>
 	<version>1.7.7</version>
       </dependency>
+      <dependency>
+	<groupId>com.sleepycat</groupId>
+	<artifactId>je</artifactId>
+	<version>5.0.73</version>
+      </dependency>
+
     <!--    <dependency>
             <groupId>com.oracle.kv</groupId>
             <artifactId>kv-coherence</artifactId>
