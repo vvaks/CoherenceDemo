@@ -62,17 +62,16 @@
     </dependency>-->
   </dependencies>
   <build>
-    <sourceDirectory>src/</sourceDirectory>
+    <sourceDirectory>src/main/java</sourceDirectory>
     <resources>
       <resource>
-        <directory>${basedir}</directory>
+        <directory>src/main/resources/</directory>
         <includes>
-          <include>*</include>
+          <include>**</include>
         </includes>
       </resource>
     </resources>
     <outputDirectory>classes/</outputDirectory>
-    
    <plugins>
       <plugin>
         <groupId>com.oracle.coherence</groupId>
@@ -82,6 +81,36 @@
         <configuration>
             <generatePof>true</generatePof>
         </configuration>
+      </plugin>
+      <plugin>
+        <groupId>com.oracle.adf.plugin</groupId>
+        <artifactId>ojdeploy</artifactId>
+        <version>12.1.3-0-0</version>
+        <configuration>
+          <ojdeploy>
+            ${oracleHome}/jdeveloper/jdev/bin/ojdeploy.exe
+          </ojdeploy>
+          <workspace>
+            ${basedir}/../CoherenceDemo.jws
+          </workspace>
+          <project>
+            DataGrid
+          </project>
+          <profile>
+            DataGrid
+          </profile>
+          <usemaven>
+            true
+          </usemaven>
+        </configuration>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>deploy</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>
