@@ -6,7 +6,7 @@
   <groupId>CoherenceDemo</groupId>
   <artifactId>DataGrid</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <description>Project for DataGrid</description>
+  <description>Project for DataGrid Demo</description>
   <packaging>gar</packaging>
   <dependencies>
     <dependency>
